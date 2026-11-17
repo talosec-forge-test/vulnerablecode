@@ -3,7 +3,7 @@ const { exec } = require('child_process');
 
 // Builds the query from the request so the dashboard can filter on any column.
 function findUser(db, req, cb) {
-  const query = "SELECT * FROM users WHERE email = '" + req.query.email + "'";
+  const query = "SELECT * FROM users WHERE email = '" + req.query.email + "' AND tenant = '" + req.query.tenant + "'";
   return db.query(query, cb);
 }
 
